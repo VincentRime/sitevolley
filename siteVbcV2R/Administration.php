@@ -1,3 +1,35 @@
+<?php   
+    require_once 'include/inc.dtbase';
+    require_once 'modifier.php';
+    $cnn = getConnexion('sitevolley');
+            
+    // récuperer les équipes
+    $stmt = $cnn->prepare('SELECT * FROM tblequipe');
+    $stmt->execute();
+    
+    //récuperer les joueurs
+    $stmt2 = $cnn->prepare('SELECT * FROM tbljoueur');
+    $stmt2->execute();
+    
+    //récuperer les admins
+    $stmt3 = $cnn->prepare('SELECT * FROM tbladmin');
+    $stmt3->execute();
+    
+    //récuperer Galerie
+    $stmt4 = $cnn->prepare('SELECT * FROM galerie');
+    $stmt4->execute();
+    
+    //récuperer les news
+    $stmt5 = $cnn->prepare('SELECT * FROM news');
+    $stmt5->execute();
+    
+    //Lire chaque enregistrement 
+    $equipe = $stmt->fetchALL(PDO::FETCH_OBJ);
+    $joueur = $stmt2->fetchALL(PDO::FETCH_OBJ);
+    $admin = $stmt3->fetchALL(PDO::FETCH_OBJ);
+    $galerie = $stmt4->fetchALL(PDO::FETCH_OBJ);
+    $news = $stmt5->fetchALL(PDO::FETCH_OBJ);
+?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -35,15 +67,298 @@
 		
   </div>
  </div>
-      <!--/start-banner-->
-  <div class="banner two">
-     <div class="container">
-     </div>
-  </div>
-    <!--//end-banner-->
      <!--/start-main-->
           <div class="main-content">
+              
+              
+              <div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="tabbable" id="tabs-37998">
+				<ul class="nav nav-tabs">
+					<li class="active">
+						<a href="#panel-405136" data-toggle="tab">Les équipes</a>
+					</li>				
+                                        <li>
+						<a href="#panel-999425" data-toggle="tab">Joueur</a>
+					</li>
+                                        <li>
+						<a href="#panel-999426" data-toggle="tab">Utilisateur</a>
+					</li>
+                                        <li>
+						<a href="#panel-999423" data-toggle="tab">Galerie</a>
+					</li>
+                                        <li>
+						<a href="#panel-999424" data-toggle="tab">News</a>
+					</li>	
+                                        
+				</ul>
+				<div class="tab-content">
+					<div class="tab-pane active" id="panel-405136">
+                                            <div class="container-fluid">
+                                                
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <table class="table table-bordered">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Nom équipe</th>
+                                                                    <th>catégorie</th>
+                                                                    <th>Modifier - Supprimer</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                            <?php     
+                                                                for ($i = 0 ; $i < count($equipe); $i++){
+                                                                    
+                                                                echo '<tr class="active">';
+                                                                echo '	<td class="one">'. $equipe[$i]->nom_equipe .'</td>';
+                                                                echo '	<td class="one">'. $equipe[$i]->categorie .'</td>';
+                                                                
+                                                                
+                                                             //   echo '<td class="one"> <input id="email" type="email" class="form-control" name="email" value="" placeholder="'.$equipe->numero.'"> </td>';
+                                                               // echo '<td class="one"> <input id="email" type="email" class="form-control" name="email" value="" placeholder="'.$equipe->nom_equipe.'"> </td>';
+                                                                echo '  <td class="one">
+                                                                        <div class="container-fluid">
+                                                                            <div class="row">
+                                                                                <div class="col-md-12">
+                                                                                    <div class="btn-group">
+                                                                                        
+                                                                                            <button>
+                                                                                                <a href="delete.php?numero='.$equipe[$i]->numero.'">
+                                                                                                    <em class="glyphicon glyphicon-pencil"></em> Delete
+                                                                                                </a>
+                                                                                            </button>
 
+                                                                                            <button 
+                                                                                                <a href="Modifier.php?id='.$equipe[$i]->numero.'">
+                                                                                                    <em class="glyphicon glyphicon-pencil"></em> Modifier
+                                                                                                </a>
+                                                                                            </button>
+                                                                                       
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        </td>
+                                                                    </tr>';
+                                                                }
+                                                            ?>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+					</div>
+					<div class="tab-pane" id="panel-999425">
+                                            <div class="container-fluid">
+                                                
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <table class="table table-bordered">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Prenom</th>
+                                                                    <th>Nom</th>
+                                                                    <th>Equipe</th>
+                                                                    <th>Modifier - Supprimer</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                            <?php     
+                                                                for ($i = 0 ; $i < count($joueur); $i++){
+                                                                    
+                                                                echo '<tr class="active">';
+                                                                echo '	<td class="one">'. $joueur[$i]->prenomjoueur .'</td>';
+                                                                echo '	<td class="one">'. $joueur[$i]->nomjoueur .'</td>';
+                                                                echo '	<td class="one">'. $joueur[$i]->num_equipejoueur .'</td>';
+                                                                
+                                                                
+                                                                //   echo '<td class="one"> <input id="email" type="email" class="form-control" name="email" value="" placeholder="'.$equipe->numero.'"> </td>';
+                                                                // echo '<td class="one"> <input id="email" type="email" class="form-control" name="email" value="" placeholder="'.$equipe->nom_equipe.'"> </td>';
+                                                                echo '  <td class="one">'
+                                                                    . '<div class="container-fluid">
+                                                                            <div class="row">
+                                                                                <div class="col-md-12">
+                                                                                    <div class="btn-group">
+                                                                                        <form>
+                                                                                            <button>
+                                                                                                <a href="delete.php?id=<?=$joueur[$i]->numero?>
+                                                                                                    <em class="glyphicon glyphicon-pencil"></em> Delete
+                                                                                                </a>
+                                                                                            </button>
+
+                                                                                            <button 
+                                                                                                <a href="Modifier.php?id=<?=$joueur[$i]->numero?>
+                                                                                                    <em class="glyphicon glyphicon-pencil"></em> Modifier
+                                                                                                </a>
+                                                                                            </button>
+                                                                                        </form>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div> '
+                                                                    . '</td>';
+                                                                echo '</tr>';
+                                                                }
+                                                            ?>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+					</div>
+                                        <div class="tab-pane" id="panel-999423">
+                                            <div class="container-fluid">
+                                                
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <table class="table table-bordered">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Titre</th>
+                                                                    <th>Lien</th>
+                                                                    <th>equipe</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                            <?php     
+                                                                for ($i = 0 ; $i < count($galerie); $i++){
+                                                                echo '<tr class="active">';
+                                                                echo '	<td class="one">'. $galerie[$i]->nom .'</td>';
+                                                                echo '	<td class="one">'. $galerie[$i]->equipe .'</td>';
+                                                                echo '	<td class="one"><img style="width: auto;height: 50px;" src="data:image/jpeg;base64,'. base64_encode($galerie[$i]->lien) .'"/></td>';
+                                                                
+                                                               //   echo '<td class="one"> <input id="email" type="email" class="form-control" name="email" value="" placeholder="'.$equipe->numero.'"> </td>';
+                                                               // echo '<td class="one"> <input id="email" type="email" class="form-control" name="email" value="" placeholder="'.$equipe->nom_equipe.'"> </td>';
+                                                                echo '  <td class="one">'
+                                                                    . '<div class="container-fluid">
+                                                                            <div class="row">
+                                                                                <div class="col-md-12">
+                                                                                    <div class="btn-group">
+                                                                                        <form>
+                                                                                            <button>
+                                                                                                <a href="delete.php?id=<?=$galerie[$i]->numero?>
+                                                                                                    <em class="glyphicon glyphicon-pencil"></em> Delete
+                                                                                                </a>
+                                                                                            </button>
+
+                                                                                            <button 
+                                                                                                <a href="Modifier.php?id=<?=galerie[$i]->numero?>
+                                                                                                    <em class="glyphicon glyphicon-pencil"></em> Modifier
+                                                                                                </a>
+                                                                                            </button>
+                                                                                        </form>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div> '
+                                                                    . '</td>';
+                                                                echo '</tr>';
+                                                                }
+                                                            ?>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+					</div>
+                                    
+                                        <div class="tab-pane" id="panel-999424">
+                                            <div class="container-fluid">
+                                                
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <table class="table table-bordered">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Titre</th>
+                                                                    <th>Le contenu</th>
+                                                                    <th>date</th>
+                                                                    <th>Modifier - Supprimer</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                
+
+                                                                
+                                                                
+                                                                
+                                                                
+                                                            <?php     
+                                                                for ($i = 0 ; $i < count($news); $i++){
+                                                                    
+                                                                echo '<tr  class="active">';
+                                                                var_dump($_GET);
+                                                                if ($_GET['submit'] != $i){
+                                                                    var_dump($_POST);
+                                                                echo '	<td class="one">'. $news[$i]->titre .'</td>';
+                                                                echo '	<td class="one">'. $news[$i]->contenu .'</td>';
+                                                                echo '	<td class="one">'. $news[$i]->date .'</td>';
+                                                                }  else {
+                                                                    
+                                                                echo '    <form method="POST" action="'. $_SERVER['PHP_SELF'] .'" class="form">';
+                                                                
+                                                                echo '        <td class="one"><input class="form-control" type="text" name="titre" id="titre" placeholder="'.$news[$i]->titre.'"/><br /></td>';
+
+                                                                echo '        <td class="one"><input class="form-control" type="text" name="contenu" id="contenu" placeholder="'.$news[$i]->contenu.'"/><br /></td>';
+                                                                
+                                                                echo '        <td class="one"><input class="form-control" type="text" name="date" id="date" placeholder="'. $news[$i]->date .'"/><br /></td>';
+
+
+                                                                }
+                                                                
+                                                             //   echo '<td class="one"> <input id="email" type="email" class="form-control" name="email" value="" placeholder="'.$equipe->numero.'"> </td>';
+                                                               // echo '<td class="one"> <input id="email" type="email" class="form-control" name="email" value="" placeholder="'.$equipe->nom_equipe.'"> </td>';
+                                                                echo '  <td class="one">'
+                                                                    . '<div class="container-fluid">
+                                                                            <div class="row">
+                                                                                <div class="col-md-12">
+                                                                                    <div class="btn-group">
+                                                                                        <form>
+                                                                                            <button>
+                                                                                                <a href="delete.php?id=<?=$news[$i]->numero>&tbl=news">
+                                                                                                    <em class="glyphicon glyphicon-pencil"></em> Delete
+                                                                                                </a>
+                                                                                            </button>
+
+                                                                                            <button> 
+                                                                                                <a href="Administration.php?id="'. $galerie[$i]->numero .'">
+                                                                                                    <em class="glyphicon glyphicon-pencil"></em> Modifier
+                                                                                                </a>
+                                                                                            </button>
+                                                                                            
+                                                                                            <button>
+                                                                                            '. Modifier('news', $galerie[$i]->numero, 'salut')  .'
+                                                                                            
+                                                                                            <input class="btn btn-default" type="submit" name="submit" value="numero" >
+                                                                                            </form>
+
+                                                                                            </button>
+                                                                                        </form>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div> '
+                                                                    . '</td>';
+                                                                echo '</tr>';
+                                                                }
+                                                            ?>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 	   
 	 </div>
 		<!--//soccer-inner-->
@@ -59,8 +374,8 @@
 			</div>
 	<!--//end-footer-section-->
 			<!--/start-copyright-section-->
-				<div class="copyright">
-						  <p>&copy; VBC Val-de-ruz Sport. All Rights Reserved | Design by Psi </p>
+                                        <div class="copyright">
+                                            <p>&copy; VBC Val-de-ruz Sport. All Rights Reserved | Design by Psi </p>
 					</div>
 
 
@@ -87,6 +402,5 @@
 <script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
 
 <!--//JS-->
-
 </body>
 </html>

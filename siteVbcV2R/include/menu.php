@@ -64,32 +64,16 @@
 						</ul>
 					  </li>
 					<li><a href="<?php echo $homeSiteDir?>contact.php">Contact</a></li>
-                                        <li>
-                                            <?php
-                                            if (empty($_SESSION['nom'])){
-                                            echo '<form action="include/connexion.inc.php" id="signin" class="form-inline mt-2 mt-md-0" role="form" method="post">
-                                                    <span class="fa-stack fa-lg">
-                                                        <i class="fa-reverse fa-lock fa-stack-2x"></i>
-                                                    </span>
-
-                                                    <input id="email" type="email" class="form-control" name="email" value="" placeholder="Email Address">                                        
-
-                                                    <span class="fa-stack fa-lg">
-                                                        <i class="fa-reverse fa-lock fa-stack-2x"></i>
-                                                    </span>
-
-                                                    <input id="password" type="password" class="form-control" name="password" value="" placeholder="Password">                                        
-
-                                                    <button type="submit" class="btn btn-primary">Login</button>
-                                                </form>';
-                                       }
-                                            else {
-                                                echo    '<form action="deco.php" id="signin" class="form-inline mt-2 mt-md-0" role="form" method="post">                                                    
-                                                        <button type="submit" class="btn btn-primary">deconnexion</button>
-                                                        </form>';
+                                        <?php 
+                                        
+                                            if($_POST){
+                                                echo '<li><a href="<?php echo $homeSiteDir?>connexion.php">Se connecter</a></li>';
                                             }
-                                            ?>
-                                        </li>
+                                            else{
+                                                echo 'oui';
+                                            }
+                                            var_dump($_POST);
+                                        ?>
 				</ul>
 			</div>
 			<!--/.navbar-collapse-->
