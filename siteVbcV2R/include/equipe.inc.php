@@ -9,30 +9,30 @@
 <link href="<?php echo $homeSiteDir?>css/bootstrap-3.1.1.min.css" rel="stylesheet" type="text/css">
 <!-- Custom Theme files -->
 <link href="<?php echo $homeSiteDir?>css/owl.carousel.css" rel="stylesheet" type="text/css" media="all" />
-<link href="<?php echo $homeSiteDir?>css/style.css" rel='stylesheet' type='text/css' />	
+<link href="<?php echo $homeSiteDir?>css/style.css" rel='stylesheet' type='text/css' />
 <script src="<?php echo $homeSiteDir?>js/jquery.min.js"> </script>
 <script type="text/javascript" src="<?php echo $homeSiteDir?>js/move-top.js"></script>
 <script type="text/javascript" src="<?php echo $homeSiteDir?>js/easing.js"></script>
 <!--/script-->
 <script type="text/javascript">
 			jQuery(document).ready(function($) {
-				$(".scroll").click(function(event){		
+				$(".scroll").click(function(event){
 					event.preventDefault();
 					$('html,body').animate({scrollTop:$(this.hash).offset().top},900);
 				});
 			});
 </script>
 </head>
-<body> 
+<body>
  <div class="container">
   <div class="header" id="home">
 	 <div class="subhead white">
 
              <?php
-             // include navigation bar            
+             // include navigation bar
                 include_once $homeSiteDir.'include/menu.php';
              ?>
-		
+
   </div>
  </div>
    <!--/start-banner-->
@@ -60,29 +60,29 @@
                                                                echo '<img src="'.$homeSiteDir.'images/team.jpg" class="img-responsive img-rounded" alt="Logo du club"> ';
                                                            }
                                                            ?>
-                                                           
+
                                                            </div>
 
 							</div>
                                                 <!--//team-->
 
-                                                
+
                                                 <!--/slideshow-->
-                                                
+
                                                 	<div class="players">
 							   <h3 class="tittle">Diaporama</h3>
                                                                 <ul id="flexiselDemo3">
                                                                 <?php
                                                                 $files = scandir('slideshow');
-                                                                foreach ($files as $key => $image) 
-                                                                { 
-                                                                   if (!is_dir($image)) 
-                                                                   { 
+                                                                foreach ($files as $key => $image)
+                                                                {
+                                                                   if (!is_dir($image))
+                                                                   {
                                                                          echo '<li>
                                                                                 <div class="biseller-column">
                                                                                     <a class="lightbox" href="#one">
                                                                                         <img src="slideshow/'.$image.'" alt=""/>
-                                                                                    </a> 
+                                                                                    </a>
                                                                                     <div class="lightbox-target" id="one">
                                                                                         <img src="slideshow/'.$image.'" alt=""/>
                                                                                         <a class="lightbox-close" href="#"> </a>
@@ -90,42 +90,42 @@
                                                                                     </div>
                                                                                 </div>
                                                                             </li>';
-                                                                   } 
-                                                                } 
+                                                                   }
+                                                                }
                                                                 ?>
                                                             </ul>
                                                         </div>
-                                                
+
                                                 	<script type="text/javascript">
 							 $(window).load(function() {
 								$("#flexiselDemo3").flexisel({
 									visibleItems:3,
 									animationSpeed: 1000,
 									autoPlay: true,
-									autoPlaySpeed: 3000,    		
+									autoPlaySpeed: 3000,
 									pauseOnHover: true,
 									enableResponsiveBreakpoints: true,
-									responsiveBreakpoints: { 
-										portrait: { 
+									responsiveBreakpoints: {
+										portrait: {
 											changePoint:480,
 											visibleItems:3
-										}, 
-										landscape: { 
+										},
+										landscape: {
 											changePoint:640,
 											visibleItems:3
 										},
-										tablet: { 
+										tablet: {
 											changePoint:768,
 											visibleItems:3
 										}
 									}
 								});
-								
+
 							});
 						   </script>
 						   <script type="text/javascript" src="<?php echo $homeSiteDir?>js/jquery.flexisel.js"></script>
                                                    <!--//slideshow-->
-                     
+
 
 					 </div>
 					<!--//soccer-left-part-->
@@ -137,7 +137,7 @@
                                                  <div class="top-news">
                                                     <h4 class="side">Résultats et classement</h4>
                                                     <div class="top-inner">
-                                                    <?php 
+                                                    <?php
                                                            echo '<div class="top-text">';
                                                            echo '<p><a target="_blank" href="'.$lienVersClassement.'">Lien vers les classements </a></p>';
                                                            echo '</div>';
@@ -160,8 +160,8 @@
                                                     <div class="top-inner">
                                                     <?php
                                                     //$files = scandir('news');
-                                                    foreach ($news as $key => $value) 
-                                                    { 
+                                                    foreach ($news as $key => $value)
+                                                    {
                                                         if(file_exists('news/'.$key))
                                                         {
                                                            echo '<div class="top-text">
@@ -173,9 +173,9 @@
                                                         {
                                                            echo '<div class="top-text">
                                                                         <p>'.$value.'</p><br/><br/>
-                                                                </div>';                                                                                                                   
+                                                                </div>';
                                                         }
-                                                    } 
+                                                    }
                                                     ?>
 
                                                     </div>
@@ -186,7 +186,7 @@
 			         <!--//soccer-right-part-->
 		           <div class="clearfix"> </div>
 	           </div>
-			   
+
 		</div>
 		<!--//soccer-inner-->
 	 </div>
@@ -194,7 +194,7 @@
 			<div class="footer-section">
 			   <div class="container">
 					<div class="footer-grids">
-	
+
 					<div class="clearfix"></div>
 					</div>
 				</div>
@@ -214,12 +214,12 @@
 								  			containerID: 'toTop', // fading element id
 											containerHoverID: 'toTopHover', // fading element hover id
 											scrollSpeed: 1200,
-											easingType: 'linear' 
+											easingType: 'linear'
 								 		};
 										*/
-										
+
 										$().UItoTop({ easingType: 'easeOutQuart' });
-										
+
 									});
 								</script>
 		<a href="#home" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
@@ -232,4 +232,3 @@
 
 </body>
 </html>
-

@@ -18,7 +18,7 @@
 				<a class="navbar-brand" href="<?php echo $homeSiteDir?>index.php"><h1>VBC <span>V2R</span></h1> </a>
 			</div>
 			<!--/.navbar-header-->
-		
+
 			<div class="collapse navbar-collapse pull-right" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
 				    <li class="dropdown">
@@ -54,7 +54,7 @@
 							<li class="divider"></li>
 							<li><a href="<?php echo $homeSiteDir?>equipes/equipe-mm13-4x4/equipe.php">MM13 4x4</a></li>
 							<li class="divider"></li>
-                                                        <li><a href="<?php echo $homeSiteDir?>equipes/equipe-kids/equipe.php">Kids</a></li>	
+              <li><a href="<?php echo $homeSiteDir?>equipes/equipe-kids/equipe.php">Kids</a></li>
 						</ul>
 					  </li>
 				    <li class="dropdown">
@@ -63,17 +63,16 @@
 							<li><a href="<?php echo $homeSiteDir?>equipes/equipe-loisir-1/equipe.php">Loisirs 1</a></li>
 						</ul>
 					  </li>
-					<li><a href="<?php echo $homeSiteDir?>contact.php">Contact</a></li>
-                                        <?php 
-                                        
-                                            if($_POST){
-                                                echo '<li><a href="<?php echo $homeSiteDir?>connexion.php">Se connecter</a></li>';
-                                            }
-                                            else{
-                                                echo 'oui';
-                                            }
-                                            var_dump($_POST);
-                                        ?>
+		       <li><a href="<?php echo $homeSiteDir?>contact.php">Contact</a></li>
+              <?php
+
+                  if(!$_POST){
+                      echo '<li><a href="'. $homeSiteDir.'connexion.php">Se connecter</a></li>';
+                  }
+                  else{
+                      echo '<li><a href="'. $homeSiteDir.'connexion.php">Se déconnecter</a></li>';
+                  }
+              ?>
 				</ul>
 			</div>
 			<!--/.navbar-collapse-->

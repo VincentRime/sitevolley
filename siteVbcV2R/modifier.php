@@ -1,7 +1,4 @@
 <?php
-require_once 'include/inc.dtbase';
-$cnn = getConnexion('sitevolley');
-
  function Modifier($table,$numero,$change) {
         try {
             $stmt = $cnn->prepare('UPDATE :table SET titre= :change WHERE numero = :numero');
@@ -15,4 +12,3 @@ $cnn = getConnexion('sitevolley');
         }
     }
     ?>
-

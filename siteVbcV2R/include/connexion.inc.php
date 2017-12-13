@@ -1,4 +1,4 @@
-<?php 
+<?php
 require_once 'inc.dtbase';
 $cnn = getConnexion('sitevolley');
 
@@ -16,13 +16,13 @@ $resultat = $stmt->fetch();
 if (!$resultat)
 {
     header ('Location: ../connexion.php');
-    
+
 }
 else
 {
     session_start();
     $_SESSION['id'] = $resultat['id'];
-    $_SESSION['email'] = $email; 
+    $_SESSION['email'] = $email;
     header ('Location: ../Administration.php');
 }
 
@@ -34,4 +34,3 @@ else
 
 
 ?>
-

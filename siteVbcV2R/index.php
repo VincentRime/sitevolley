@@ -1,11 +1,11 @@
 <?php
     require_once 'include/inc.dtbase';
     $cnn = getConnexion('sitevolley');
-            
+
     // récuperer les artciles et les catégories
     $stmt = $cnn->prepare('SELECT nom_equipe,categorie FROM tblequipe');
     $stmt->execute();
-    
+
     //Lire chaque enregistrement et placer  dans le tableau de produis
     $equipe = $stmt->fetchALL(PDO::FETCH_OBJ);
 
@@ -21,21 +21,21 @@
 <link href="css/bootstrap-3.1.1.min.css" rel="stylesheet" type="text/css">
 <!-- Custom Theme files -->
 <link href="css/owl.carousel.css" rel="stylesheet" type="text/css" media="all" />
-<link href="css/style.css" rel='stylesheet' type='text/css' />	
+<link href="css/style.css" rel='stylesheet' type='text/css' />
 <script src="js/jquery.min.js"> </script>
 <script type="text/javascript" src="js/move-top.js"></script>
 <script type="text/javascript" src="js/easing.js"></script>
 <!--/script-->
 <script type="text/javascript">
 			jQuery(document).ready(function($) {
-				$(".scroll").click(function(event){		
+				$(".scroll").click(function(event){
 					event.preventDefault();
 					$('html,body').animate({scrollTop:$(this.hash).offset().top},900);
 				});
 			});
 </script>
 </head>
-<body> 
+<body>
  <div class="container">
   <div class="header" id="home">
 	 <div class="subhead white">
@@ -44,7 +44,6 @@
                 $homeSiteDir = './';
                 include_once $homeSiteDir.'include/menu.php';
              ?>
-		
   </div>
  </div>
    <!--/start-banner-->
@@ -68,7 +67,7 @@
 								<div class="banner-info">
 								<h3>MAIS AVANT TOUT...</h3>
 								<p>Le plasir reste notre motivation principale</p>
-								</div>	
+								</div>
 							</li>
 						</ul>
 						</div>
@@ -107,42 +106,41 @@
 
                      <!--/Accueil-->
 					      <div class="about">
-						      <div class="sap_tabs">	
+						      <div class="sap_tabs">
 								<div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
 									  <ul class="resp-tabs-list">
 										  <li class="resp-tab-item grid1" aria-controls="tab_item-0" role="tab"><span>LE CLUB</span></li>
 										  <li class="resp-tab-item grid2" aria-controls="tab_item-1" role="tab"><span>NOS EQUIPES</span></li>
 										  <li class="resp-tab-item grid3" aria-controls="tab_item-2" role="tab"><span>LES ENTRAINEMENTS</span></li>
-									  </ul>				  	 
+									  </ul>
 										<div class="resp-tabs-container">
 											<div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
 												<div class="facts">
 												     <div class="tab_list">
-                                                                                                         <table><tr><td>
-                                                                                                        <div class="single-bottom">
-                                                                                                        <h1>Nos valeurs</h1>
-                                                                                                        <p>Par leur adhésion au VBC Val-de-ruz sport, les joueurs, parents, entraîneurs, officiels et dirigeants du club s’engagent à respecter les valeur, créant ainsi des conditions idéales pour faire de la pratique du volley-balle, un lieu privilégié d’épanouissement et d’intégration.
-                                                                                                        </p>
-                                                                                                        <h1>Plaisir</h1>
-                                                                                                        <p>Le volley-ball est avant tout un jeu. Il doit être une source d’expériences constructives, un lieu où célébrer la joie d’être ensemble et d’appartenir à une collectivité qui se caractérise par des valeurs positives.
-                                                                                                        </p>
-                                                                                                        <h1>Respect</h1>
-                                                                                                        <p>Faire preuve d’esprit sportif, c’est respecter l’ensemble des acteurs qui permettent le déroulement de l’activité sportive ainsi que soi-même, par l’adoption d’un comportement irréprochable aussi bien dans la victoire que dans la défaite.
-                                                                                                        </p>
-                                                                                                        <h1>Loyauté</h1>
-                                                                                                        <p>Il n’y a pas de sport sans règles. Leur respect est la condition indispensable pour assurer l’égalité des chances dans une compétition. Être loyal, ce n’est pas seulement accepter les décisions arbitrales, mais aussi être animé par un état d’esprit conforme à la beauté du jeu.
-                                                                                                        </p>
-                                                                                                        <h1>Solidarité</h1>
-                                                                                                        <p>L’esprit d’équipe est un élément essentiel du sport d'équipe. Savoir placer l’intérêt collectif avant la performance individuelle est un indice de générosité, de compréhension mutuelle et d‘humilité, autant de valeurs permettant de savourer pleinement les succès et accepter sans regrets les revers.
-                                                                                                        </p>
-                                                                                                        <h1>Engagement</h1>
-                                                                                                        <p>L’activité sportive incite à développer la force de volonté et le goût de l’effort. La confrontation avec autrui n’est pas un but en soi, mais l’occasion de mieux se connaître et s’améliorer.
-                                                                                                        </p>                                                                                                            
-                                                                                                        </td></tr></table>
-
-                                                                                                     </div>
+                             <table><tr><td>
+                            <div class="single-bottom">
+                            <h1>Nos valeurs</h1>
+                            <p>Par leur adhésion au VBC Val-de-ruz sport, les joueurs, parents, entraîneurs, officiels et dirigeants du club s’engagent à respecter les valeur, créant ainsi des conditions idéales pour faire de la pratique du volley-balle, un lieu privilégié d’épanouissement et d’intégration.
+                            </p>
+                            <h1>Plaisir</h1>
+                            <p>Le volley-ball est avant tout un jeu. Il doit être une source d’expériences constructives, un lieu où célébrer la joie d’être ensemble et d’appartenir à une collectivité qui se caractérise par des valeurs positives.
+                            </p>
+                            <h1>Respect</h1>
+                            <p>Faire preuve d’esprit sportif, c’est respecter l’ensemble des acteurs qui permettent le déroulement de l’activité sportive ainsi que soi-même, par l’adoption d’un comportement irréprochable aussi bien dans la victoire que dans la défaite.
+                            </p>
+                            <h1>Loyauté</h1>
+                            <p>Il n’y a pas de sport sans règles. Leur respect est la condition indispensable pour assurer l’égalité des chances dans une compétition. Être loyal, ce n’est pas seulement accepter les décisions arbitrales, mais aussi être animé par un état d’esprit conforme à la beauté du jeu.
+                            </p>
+                            <h1>Solidarité</h1>
+                            <p>L’esprit d’équipe est un élément essentiel du sport d'équipe. Savoir placer l’intérêt collectif avant la performance individuelle est un indice de générosité, de compréhension mutuelle et d‘humilité, autant de valeurs permettant de savourer pleinement les succès et accepter sans regrets les revers.
+                            </p>
+                            <h1>Engagement</h1>
+                            <p>L’activité sportive incite à développer la force de volonté et le goût de l’effort. La confrontation avec autrui n’est pas un but en soi, mais l’occasion de mieux se connaître et s’améliorer.
+                            </p>
+                          </td></tr></table>
+                         </div>
 												</div>
-													
+
 											</div>
 											<div class="tab-1 resp-tab-content" aria-labelledby="tab_item-1">
 												<div class="facts">
@@ -155,13 +153,13 @@
 																</tr>
 																</thead>
 																<tbody>
-                                                                                                                                <?php
-                                                                                                                                    foreach ($equipe as $uneequipe){                                                                                                                                        
-                                                                                                                                        echo '<tr>';
-                                                                                                                                        echo '	<td class="one">'. $uneequipe->nom_equipe .'</td>';
-                                                                                                                                        echo '	<td class="one">'. $uneequipe->categorie .'</td>';																	
-                                                                                                                                        echo '</tr>';
-                                                                                                                                        }
+                                <?php
+                                foreach ($equipe as $uneequipe){
+                                    echo '<tr>';
+                                    echo '	<td class="one">'. $uneequipe->nom_equipe .'</td>';
+                                    echo '	<td class="one">'. $uneequipe->categorie .'</td>';
+                                    echo '</tr>';
+                                    }
 																?>
 																</tbody>
 															</table>
@@ -186,27 +184,27 @@
 																	<td class="one">18h00-19h15</td>
 																	<td class="one">La Fontennlle (ancienne)</td>
 																	<td class="one">M13 garçons (jusqu'à 11ans)</td>
-																	
+
 																</tr>
 																<tr>
 																	<td class="one">Lundi</td>
 																	<td class="one">20h00-22h00</td>
 																	<td class="one">La Fontenelle</td>
 																	<td class="one">Ligue Féminine</td>
-																	
+
 																</tr>
 																<tr>
 																	<td class="one">Lundi</td>
 																	<td class="one">20h00-22h00</td>
 																	<td class="one">La Fontenelle (ancienne)</td>
 																	<td class="one">Loisirs mixte</td>
-																	
+
 																</tr>
 																<tr>
 																	<td class="one">Lundi</td>
 																	<td class="one">18h00-20h00</td>
 																	<td class="one">La Fontenelle (ancienne)</td>
-																	<td class="one">M15 filles (jusqu'à 13ans)</td>																	
+																	<td class="one">M15 filles (jusqu'à 13ans)</td>
 																</tr>
 																<tr>
 																	<td class="one">Mercredi</td>
@@ -224,7 +222,7 @@
 																	<td class="one">Mercredi</td>
 																	<td class="one">20h00-22h00</td>
 																	<td class="one">La Fontenelle</td>
-																	<td class="one">Ligue féminine</td>																	
+																	<td class="one">Ligue féminine</td>
 																</tr>
 																<tr>
 																	<td class="one">Jeudi</td>
@@ -247,7 +245,7 @@
 											<script type="text/javascript">
 												$(document).ready(function () {
 													$('#horizontalTab').easyResponsiveTabs({
-														type: 'default', //Types: default, vertical, accordion           
+														type: 'default', //Types: default, vertical, accordion
 														width: 'auto', //auto or any width like 600px
 														fit: true   // 100% fit in a container
 													});
@@ -273,21 +271,21 @@
 												<div class="c5-element-facebook"><a href="https://www.facebook.com/groups/vbc.vdr/" target="blank"><span class="icon"></span><span class="text">Suivez-nous...</span></a></div>
 											</div>
 										  </div>
-										<!--//connected-->						
-						
-						
-						
+										<!--//connected-->
+
+
+
 										<!--agenda/Calendar-->
 										<div class="top-news">
 											<h4 class="side">Calendrier régional</h4>
-											<div class="top-inner">											
+											<div class="top-inner">
 												<p>Championnat régionaux</p>
 												<div class="c5-element-facebook">
 													<a class="btn btn-block" href="http://svrn.ch/indoor/championnat-regional" target="blank"> <span class="glyphicon glyphicon-info-sign"></span><span class="text"> SVRN</span></a>
 												</div>
 											</div>
 											<h4 class="side">Agenda du club</h4>
-											<div class="top-inner">											
+											<div class="top-inner">
 												<p>Prêtez attention à la catégorie !</br>
 													F-M15 signifie : filles M15 .</br>
 													M-M17 : garçons M17 </br>
@@ -297,9 +295,9 @@
 												</iframe>
 											</div>
 										  </div>
-										  	<!--//agenda/Calendar-->								
-						
-						
+										  	<!--//agenda/Calendar-->
+
+
 
                                         <!--/top-news-->
                                                  <div class="top-news">
@@ -320,8 +318,8 @@
                                                     <div class="top-inner">
                                                     <?php
                                                     //$files = scandir('news');
-                                                    foreach ($news as $key => $value) 
-                                                    { 
+                                                    foreach ($news as $key => $value)
+                                                    {
                                                         if(file_exists('news/'.$key))
                                                         {
                                                            echo '<div class="top-text">
@@ -333,21 +331,21 @@
                                                         {
                                                            echo '<div class="top-text">
                                                                         <p>'.$value.'</p><br/><br/>
-                                                                </div>';                                                                                                                   
+                                                                </div>';
                                                         }
-                                                    } 
+                                                    }
                                                     ?>
 
                                                     </div>
                                                 </div>
 					<!--//top-news-->
-                                                 <img src="images/logo-noir-graduation.jpg" class="img-responsive img-circle" alt="Logo du club"> 
+                                                 <img src="images/logo-noir-graduation.jpg" class="img-responsive img-circle" alt="Logo du club">
 
 		            </div>
 			         <!--//soccer-right-part-->
 		           <div class="clearfix"> </div>
 	           </div>
-			   
+
 		</div>
 		<!--//soccer-inner-->
 	 </div>
@@ -355,7 +353,7 @@
 			<div class="footer-section">
 			   <div class="container">
 					<div class="footer-grids">
-	
+
 					<div class="clearfix"></div>
 					</div>
 				</div>
@@ -375,12 +373,12 @@
 								  			containerID: 'toTop', // fading element id
 											containerHoverID: 'toTopHover', // fading element hover id
 											scrollSpeed: 1200,
-											easingType: 'linear' 
+											easingType: 'linear'
 								 		};
 										*/
-										
+
 										$().UItoTop({ easingType: 'easeOutQuart' });
-										
+
 									});
 								</script>
 		<a href="#home" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
