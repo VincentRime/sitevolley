@@ -358,6 +358,7 @@
 
                             echo '<tr  class="active">';
                             var_dump($_GET);
+
                             if (@$_GET['submit'] == $i){
                                 var_dump($_GET);
 
@@ -398,7 +399,7 @@
                                                             </a>
                                                         </button>
 
-                                                        <button>
+                                                        <button TYPE = "Submit" name="Submit" VALUE = "">
                                                             <a href="Administration.php" >
                                                               <em class="glyphicon glyphicon-pencil"></em> Valider
                                                             </a>
