@@ -358,23 +358,25 @@
 
                             echo '<tr  class="active">';
                             var_dump($_GET);
-                            if (@$_GET['submit'] != $i){
-                                var_dump($_POST);
-                            echo '	<td class="one">'. $news[$i]->titre .'</td>';
-                            echo '	<td class="one">'. $news[$i]->contenu .'</td>';
-                            echo '	<td class="one">'. $news[$i]->date .'</td>';
-                            }  else {
+                            if (@$_GET['submit'] == $i){
+                                var_dump($_GET);
 
-                            echo '    <form method="POST" action="'. $_SERVER['PHP_SELF'] .'" class="form">';
+                                echo '    <form method="GET" action="'. $_SERVER['PHP_SELF'] .'" class="form">';
 
-                            echo '        <td class="one"><input class="form-control" type="text" name="titre" id="titre" placeholder="'.$news[$i]->titre.'"/><br /></td>';
+                                echo '        <td class="one"><input class="form-control" type="text" name="titre" id="titre" placeholder="'.$news[$i]->titre.'"/><br /></td>';
 
-                            echo '        <td class="one"><input class="form-control" type="text" name="contenu" id="contenu" placeholder="'.$news[$i]->contenu.'"/><br /></td>';
+                                echo '        <td class="one"><input class="form-control" type="text" name="contenu" id="contenu" placeholder="'.$news[$i]->contenu.'"/><br /></td>';
 
-                            echo '        <td class="one"><input class="form-control" type="text" name="date" id="date" placeholder="'. $news[$i]->date .'"/><br /></td>';
+                                echo '        <td class="one"><input class="form-control" type="text" name="date" id="date" placeholder="'. $news[$i]->date .'"/><br /></td>';
 
 
-                            }
+                              }  else {
+                                  echo '	<td class="one">'. $news[$i]->titre .'</td>';
+                                  echo '	<td class="one">'. $news[$i]->contenu .'</td>';
+                                  echo '	<td class="one">'. $news[$i]->date .'</td>';
+
+
+                              }
 
 
                             echo '  <td class="one">'
@@ -397,11 +399,10 @@
                                                         </button>
 
                                                         <button>
-
-
-                                                        <input type"submit" name="envoyer" value="envoyer" onclick="Modifier();">
-
-
+                                                            <a href="Administration.php" >
+                                                              <em class="glyphicon glyphicon-pencil"></em> Valider
+                                                            </a>
+                                                        </button>
                                                     </form>
                                                 </div>
                                             </div>
